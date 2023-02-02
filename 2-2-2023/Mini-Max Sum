@@ -1,0 +1,9 @@
+def miniMaxSum(arr):
+    # Write your code here
+    su=sum(arr)
+    maxsum=su-min(arr)
+    minsum=su-max(arr)
+    l=[]
+    l.append(minsum)
+    l.append(maxsum)
+    print(*l)
