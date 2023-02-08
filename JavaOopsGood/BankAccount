@@ -1,0 +1,57 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+class bank{
+    String name;
+    int balance;
+    int accountno;
+    void insert(String v){
+        name=v;
+    }
+    void change(int a){
+        accountno=a;
+        
+    }
+    void deposit(int cash1){
+        balance=balance+cash1;
+    }
+    void withdraw(int cash1){
+        if(cash1>balance){
+            System.out.println("Negative Balance Transaction Cancelled");
+        }
+        if(cash1<=balance){
+            balance=balance-cash1;
+        }
+    }
+    void display(){
+        System.out.println(accountno+" "+name+" "+balance);
+    }
+}
+public class Solution {
+    public static void main(String[] args) {
+        Scanner e=new Scanner(System.in);
+        int a=Integer.parseInt(e.nextLine());
+        String v=e.nextLine();
+        bank p=new bank();
+        p.insert(v);
+        p.change(a);
+        int n=Integer.parseInt(e.nextLine());
+        for(int i=0;i<n;i++){
+            String c=e.next();
+            if(c.equals("Deposit")){
+                int cash1=e.nextInt();
+                p.deposit(cash1);
+            }
+            else if(c.equals("Withdraw")){
+                int cash1=e.nextInt();
+                p.withdraw(cash1);
+            }
+            else if(c.equals("Display")){
+                p.display();
+            }
+        }
+    }
+}
